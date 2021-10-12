@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
 void main() {
   runApp(MyApp());
 }
@@ -89,9 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               )),
                           Container(
                             height: 50,
-
                             child: TextFormField(
-
                               keyboardType: TextInputType.emailAddress,
                               textAlign: TextAlign.justify,
                               decoration:
@@ -156,6 +153,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ],
                                 )),
                           ),
+                          Row(
+                            children: const <Widget>[
+                              Expanded(
+                                child: Text(
+                                  "Don't have an account ?",
+                                ),
+                              ),
+                              Expanded(
+                                  child: TextButton(
+                                      onPressed: null,
+                                      child: Text(
+                                        "Sign-up",
+                                      ))),
+                            ],
+                          )
                         ],
                       ),
                     ),
@@ -173,6 +185,4 @@ class _MyHomePageState extends State<MyHomePage> {
       );
     }
   }
-
-
 }
