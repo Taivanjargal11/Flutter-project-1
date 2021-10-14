@@ -1,202 +1,40 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'screen0.dart';
+import 'screen1.dart';
+import 'screen2.dart';
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Multi Screen Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Log in'),
+      home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
-
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  int _value = 0;
-
   @override
   Widget build(BuildContext context) {
-    {
-      return Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: Center(
-          // Center is a layout widget. It takes a single child and positions it
-          // in the middle of the parent.
-          child: Container(
-            child: Stack(
-              children: [
-                Image.asset("assets/image/bg.png"),
-                Column(
-                  children: [
-                    SizedBox(
-                      height: 280,
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(left: 20),
-                      alignment: Alignment.bottomLeft,
-                      child: Text(
-                        'Log-in',
-                        style: TextStyle(
-                            fontSize: 32, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 40),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Container(
-                              alignment: Alignment.topLeft,
-                              margin: EdgeInsets.only(top: 20),
-                              child: Text(
-                                'Email',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 17),
-                              )),
-                          Container(
-                            height: 50,
-                            child: TextFormField(
-                              keyboardType: TextInputType.emailAddress,
-                              textAlign: TextAlign.justify,
-                              decoration:
-                                  InputDecoration(hintText: 'mail@website.com'),
-                            ),
-                          ),
-                          Container(
-                              alignment: Alignment.topLeft,
-                              margin: EdgeInsets.only(top: 20),
-                              child: Text(
-                                'Password',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 17),
-                              )),
-                          Container(
-                            height: 50,
-                            child: TextField(
-                              textAlign: TextAlign.justify,
-                              decoration:
-                                  InputDecoration(hintText: 'Min. 7 character'),
-                            ),
-                          ),
-                          Container(
-                            alignment: Alignment.centerRight,
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 0),
-                              child: TextButton(
-                                onPressed: null,
-                                child: const Text(
-                                  'Forget password!',
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Container(
-                            width: 300,
-                            height: 50,
-                            margin: EdgeInsets.only(top: 15),
-                            child: OutlinedButton(
-                                onPressed: null,
-                                style: ButtonStyle(
-                                  backgroundColor:
-                                      MaterialStateColor.resolveWith(
-                                          (states) => Colors.black),
-                                  shape: MaterialStateProperty.all(
-                                      RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(30.0))),
-                                ),
-                                child: Stack(
-                                  children: [
-                                    Container(
-                                      child: const Text(
-                                        "Login",
-                                        style: TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white),
-                                      ),
-                                    )
-                                  ],
-                                )),
-                          ),
-                          Row(
-                            children: const <Widget>[
-                              Expanded(
-                                child: Text(
-                                  "Don't have an account ?",
-                                ),
-                              ),
-                              Expanded(
-                                  child: TextButton(
-                                      onPressed: null,
-                                      child: Text(
-                                        "Sign-up",
-                                      ))),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const <Widget>[
-                              Text(
-                                  "-----------------Or login with-----------------"),
-                            ],
-                          ),
-                          Container(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: const <Widget>[
-                                IconButton(
-
-                                    icon: const Icon(Icons.mail_outline,size: 50,),
-                                    tooltip: 'E-Mail',
-                                    onPressed: null),
-                                IconButton(
-                                    icon: const Icon(Icons.facebook,size: 50,),
-                                    tooltip: 'Facebook',
-                                    onPressed: null),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
-        // floatingActionButton: FloatingActionButton(
-        //   onPressed: _incrementCounter,
-        //   tooltip: 'Increment',
-        //   child: Icon(Icons.add),
-        // ), // This trailing comma makes auto-formatting nicer for build methods.
-      );
-    }
+    return  MaterialApp(
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Screen0(),
+        '/Signup_Screen': (context) => Screen1(),
+        'Second Screen': (context) => Screen2(),
+      },
+    );
   }
 }

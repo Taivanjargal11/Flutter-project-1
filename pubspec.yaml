@@ -29,6 +29,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   toggle_switch: ^1.2.0
   graphic: ^0.3.0
+  passwordfield: ^0.1.0
 
 
 dev_dependencies:
