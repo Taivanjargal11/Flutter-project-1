@@ -33,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
       routes: {
         '/': (context) => Screen0(),
         '/Signup_Screen': (context) => Screen1(),
-        'Second Screen': (context) => Screen2(),
+        '/Forget_Password': (context) => Screen2(),
       },
     );
   }

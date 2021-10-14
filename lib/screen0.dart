@@ -75,10 +75,12 @@ class _Screen0State extends State<Screen0> {
                           child: Padding(
                             padding: const EdgeInsets.only(top: 0),
                             child: TextButton(
-                              onPressed: null,
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/Forget_Password',);
+                              },
                               child: const Text(
                                 'Forget password!',
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey),
                               ),
                             ),
                           ),
@@ -124,7 +126,9 @@ class _Screen0State extends State<Screen0> {
                                       Navigator.pushNamed(context, '/Signup_Screen',);
                                     },
                                     child: Text(
-                                      "Sign-up",
+                                      "Sign-up",style: TextStyle(
+                                      color: Colors.grey
+                                    ),
                                     ))),
                           ],
                         ),

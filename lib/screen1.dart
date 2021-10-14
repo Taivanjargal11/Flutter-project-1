@@ -179,7 +179,9 @@ class _Screen1State extends State<Screen1> {
                                                 );
                                               },
                                               child: Text(
-                                                "Back to login",
+                                                "Back to login",style: TextStyle(
+                                                color: Colors.grey
+                                              ),
                                               ))),
                                       SizedBox(
                                         height: 200,
