@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'screen1.dart';
-
 class Screen0 extends StatefulWidget {
   @override
   State<Screen0> createState() => _Screen0State();
@@ -76,11 +74,16 @@ class _Screen0State extends State<Screen0> {
                             padding: const EdgeInsets.only(top: 0),
                             child: TextButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/Forget_Password',);
+                                Navigator.pushNamed(
+                                  context,
+                                  '/Forget_Password',
+                                );
                               },
                               child: const Text(
                                 'Forget password!',
-                                style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey),
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.grey),
                               ),
                             ),
                           ),
@@ -123,12 +126,14 @@ class _Screen0State extends State<Screen0> {
                             Expanded(
                                 child: TextButton(
                                     onPressed: () {
-                                      Navigator.pushNamed(context, '/Signup_Screen',);
+                                      Navigator.pushNamed(
+                                        context,
+                                        '/Signup_Screen',
+                                      );
                                     },
                                     child: Text(
-                                      "Sign-up",style: TextStyle(
-                                      color: Colors.grey
-                                    ),
+                                      "Sign-up",
+                                      style: TextStyle(color: Colors.grey),
                                     ))),
                           ],
                         ),
