@@ -22,6 +22,7 @@ class _Screen0State extends State<Screen0> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Center(
@@ -71,8 +72,16 @@ class _Screen0State extends State<Screen0> {
                           ),
                         ),
                         Container(
+                            alignment: Alignment.topLeft,
+                            margin: EdgeInsets.only(top: 20),
+                            child: Text(
+                              'Password',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 17),
+                            )),
+                        Container(
                           alignment: Alignment.topLeft,
-                          margin: EdgeInsets.only(top: 20),
+                          margin: EdgeInsets.only(top: 0),
                           child: TextFormField(
                             onChanged: (value) {
                               _password = value;
@@ -80,17 +89,11 @@ class _Screen0State extends State<Screen0> {
                             keyboardType: TextInputType.emailAddress,
                             textAlign: TextAlign.justify,
                             decoration:
-                                InputDecoration(hintText: 'mail@website.com'),
+                            InputDecoration(hintText: 'Password'),
+
                           ),
                         ),
-                        Container(
-                          height: 50,
-                          child: TextField(
-                            textAlign: TextAlign.justify,
-                            decoration:
-                                InputDecoration(hintText: 'Min. 7 character'),
-                          ),
-                        ),
+
                         Container(
                           alignment: Alignment.centerRight,
                           child: Padding(
