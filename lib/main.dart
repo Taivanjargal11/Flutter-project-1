@@ -3,6 +3,10 @@ import 'package:ui/productListScreen.dart';
 import 'screen0.dart';
 import 'screen1.dart';
 import 'screen2.dart';
+import 'product_detail.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,12 +36,13 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/product_List',
+      initialRoute: '/',
       routes: {
         '/': (context) => Screen0(),
         '/Signup_Screen': (context) => Screen1(),
         '/Forget_Password': (context) => Screen2(),
-        '/product_List': (context) => productListScreen()
+        '/product_List': (context) => productListScreen(),
+        '/product_detail': (context) => PropductDetails(),
       },
     );
   }

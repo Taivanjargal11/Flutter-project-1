@@ -1,10 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 class Screen0 extends StatefulWidget {
   @override
   State<Screen0> createState() => _Screen0State();
 }
 
 class _Screen0State extends State<Screen0> {
+  String _email = "";
+  String _password = "";
+  final _auth = FirebaseAuth.instance;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    Firebase.initializeApp();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,6 +61,9 @@ class _Screen0State extends State<Screen0> {
                         Container(
                           height: 50,
                           child: TextFormField(
+                            onChanged: (value) {
+                              _email = value;
+                            },
                             keyboardType: TextInputType.emailAddress,
                             textAlign: TextAlign.justify,
                             decoration:
@@ -53,13 +71,18 @@ class _Screen0State extends State<Screen0> {
                           ),
                         ),
                         Container(
-                            alignment: Alignment.topLeft,
-                            margin: EdgeInsets.only(top: 20),
-                            child: Text(
-                              'Password',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 17),
-                            )),
+                          alignment: Alignment.topLeft,
+                          margin: EdgeInsets.only(top: 20),
+                          child: TextFormField(
+                            onChanged: (value) {
+                              _password = value;
+                            },
+                            keyboardType: TextInputType.emailAddress,
+                            textAlign: TextAlign.justify,
+                            decoration:
+                                InputDecoration(hintText: 'mail@website.com'),
+                          ),
+                        ),
                         Container(
                           height: 50,
                           child: TextField(
@@ -105,12 +128,28 @@ class _Screen0State extends State<Screen0> {
                               child: Stack(
                                 children: [
                                   Container(
-                                    child: const Text(
-                                      "Login",
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
+                                    child: TextButton(
+                                      child: Text(
+                                        "Login",
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white),
+                                      ),
+                                      onPressed: () async {
+                                        final _newuser = await _auth
+                                            .createUserWithEmailAndPassword(
+                                                email: _email,
+                                                password: _password);
+                                        if (_newuser != null) {
+                                          Navigator.pushNamed(
+                                            context,
+                                            '/product_List',
+                                          );
+                                        } else {
+                                          print("Aldaa");
+                                        }
+                                      },
                                     ),
                                   )
                                 ],
